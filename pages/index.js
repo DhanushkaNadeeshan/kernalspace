@@ -11,6 +11,7 @@ export default function Home() {
   const refMainScroll = useRef(null);
   const refAnchor = useRef(null);
   const refService = useRef(null);
+  const refVideo = useRef(null);
 
   useEffect(() => {
     const onPageLoad = () => {
@@ -92,159 +93,167 @@ export default function Home() {
     }
   };
 
-  if (playAnimation) {
-    return <Loader />;
-  } else {
-    return (
-      <div
-        className="wrapper bg-slate-900 "
-        ref={refMainScroll}
-        onScroll={handlingScroll}
-      >
-        <Head>
-          <title>KERNAL SPACE</title>
-        </Head>
+  const foo = ()=>{
+    console.log("load");
+  }
 
-        <div className="video-background">
-          <video className="pb-2" autoPlay muted loop>
-            <source src="bg.mp4" type="video/mp4" />
-          </video>
-          <div className="content-head">
+  return (
+    <div
+      className="wrapper bg-slate-900 "
+      ref={refMainScroll}
+      onScroll={handlingScroll}
+    >
+      <Head>
+        <title>KERNAL SPACE</title>
+      </Head>
+
+      <div className="video-background">
+        <video
+          className="pb-2"
+          ref={refVideo}
+          autoPlay
+          muted
+          loop
+          onLoadedData={foo}
+          src="/bg.mp4"
+        >
+       
+        </video>
+        <div className="content-head">
+          <img
+            className="w-1/2 md:w-1/5 absolute"
+            alt="background"
+            src="ooorganize.svg"
+          ></img>
+          <h1 className="absolute text-2xl md:text-3xl  font-bold text-slate-200 tracking-in-contract-bck ">
+            KERNAL SPACE
+          </h1>
+        </div>
+        <div className="absolute bottom-0 w-full h-96 bg-slate-300 content-head-b"></div>
+      </div>
+
+      <div className="w-full h-64 grid  place-items-center">
+        <p
+          className="w-3/4 md:w-2/4 text-center text-xl text-cyan-200  opacity-0"
+          ref={refAnimateOnScroll}
+        >
+          In the digital age, innovation is key. Those who are willing to take
+          risks, experiment, and embrace the power of digital tools will be the
+          ones who thrive. Don&apos;t be afraid to try new things and forge your
+          own path – the possibilities are endless
+        </p>
+      </div>
+
+      <div className="parallax">
+        <div
+          className="absolute w-11/12  md:w-3/4 md:grid md:grid-cols-3 gap-4 opacity-0"
+          ref={refService}
+        >
+          <div>
+            <ul className="text-teal-200 text-center">
+              <li className="my-8 bg-slate-800 shadow-drop-2-tb h-16 p-2 rounded opacity-70">
+                Customized high-quality software development for your needs
+              </li>
+              <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
+                Experts in latest tech deliver top-tier IT services.
+              </li>
+              <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
+                Collaborative approach to meet your expectations, with progress
+                reports.
+              </li>
+              <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
+                Innovation and creativity to meet your evolving needs and
+                challenges.
+              </li>
+            </ul>
+          </div>
+          <div></div>
+          <div>
+            <ul className="text-teal-200 text-center ">
+              <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
+                Timely and budget-friendly service that satisfies.
+              </li>
+              <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
+                Robust security measures for your sensitive data and
+                information.
+              </li>
+              <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
+                Ongoing support and maintenance, including updates and
+                troubleshooting
+              </li>
+              <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
+                Competitive pricing for valuable and quality services.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <img
+          className="w-3/4 md:w-2/5 absolute  background"
+          alt="mars"
+          src="mars-interactive-solar-system-13.png"
+        ></img>
+        <img
+          className="w-2/4 md:w-1/5 absolute  foreground"
+          alt="Astronaut"
+          src="Astronaut-PNG-Image.png"
+        ></img>
+      </div>
+
+      <div className=" w-full  md:grid   md:place-items-center">
+        <img src="oooscillate.svg" className="w-full" alt="image"></img>
+
+        <div className="md:absolute w-full md:flex  md:justify-center">
+          <div className="w-3/5 md:w-1/6 bg-slate-200 my-8 md:my-0  mx-auto md:mx-4 rounded p-4 card text-center">
             <img
-              className="w-1/2 md:w-1/5 absolute"
-              alt="background"
-              src="ooorganize.svg"
+              alt="Search Engine Optimization"
+              src="5597785.png"
+              className="w-2/5 mx-auto my-6"
             ></img>
-            <h1 className="absolute text-2xl md:text-3xl  font-bold text-slate-200 tracking-in-contract-bck ">
-              KERNAL SPACE
-            </h1>
+            <p>Search Engine Optimization</p>
           </div>
-          <div className="absolute bottom-0 w-full h-96 bg-slate-300 content-head-b"></div>
-        </div>
-
-        <div className="w-full h-64 grid  place-items-center">
-          <p
-            className="w-3/4 md:w-2/4 text-center text-xl text-cyan-200  opacity-0"
-            ref={refAnimateOnScroll}
-          >
-            In the digital age, innovation is key. Those who are willing to take
-            risks, experiment, and embrace the power of digital tools will be
-            the ones who thrive. Don&apos;t be afraid to try new things and
-            forge your own path – the possibilities are endless
-          </p>
-        </div>
-
-        <div className="parallax">
-          <div
-            className="absolute w-11/12  md:w-3/4 md:grid md:grid-cols-3 gap-4 opacity-0"
-            ref={refService}
-          >
-            <div>
-              <ul className="text-teal-200 text-center">
-                <li className="my-8 bg-slate-800 shadow-drop-2-tb h-16 p-2 rounded opacity-70">
-                  Customized high-quality software development for your needs
-                </li>
-                <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
-                  Experts in latest tech deliver top-tier IT services.
-                </li>
-                <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
-                  Collaborative approach to meet your expectations, with
-                  progress reports.
-                </li>
-                <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
-                  Innovation and creativity to meet your evolving needs and
-                  challenges.
-                </li>
-              </ul>
-            </div>
-            <div></div>
-            <div>
-              <ul className="text-teal-200 text-center ">
-                <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
-                  Timely and budget-friendly service that satisfies.
-                </li>
-                <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
-                  Robust security measures for your sensitive data and
-                  information.
-                </li>
-                <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
-                  Ongoing support and maintenance, including updates and
-                  troubleshooting
-                </li>
-                <li className="my-8 bg-slate-800 shadow-drop-2-tb  h-16 p-2 rounded opacity-70">
-                  Competitive pricing for valuable and quality services.
-                </li>
-              </ul>
-            </div>
+          <div className="w-3/5 md:w-1/6 bg-slate-200 my-8 md:my-0 mx-auto md:mx-4 rounded p-4 card text-center">
+            <img
+              alt="Web Design and Developments"
+              src="4205106.png"
+              className="w-2/5 mx-auto my-6"
+            ></img>
+            <p>Web Design and Developments</p>
           </div>
-          <img
-            className="w-3/4 md:w-2/5 absolute  background"
-            alt="mars"
-            src="mars-interactive-solar-system-13.png"
-          ></img>
-          <img
-            className="w-2/4 md:w-1/5 absolute  foreground"
-            alt="Astronaut"
-            src="Astronaut-PNG-Image.png"
-          ></img>
-        </div>
-
-        <div className=" w-full  md:grid   md:place-items-center">
-          <img src="oooscillate.svg" className="w-full" alt="image"></img>
-
-          <div className="md:absolute w-full md:flex  md:justify-center">
-            <div className="w-3/5 md:w-1/6 bg-slate-200 my-8 md:my-0  mx-auto md:mx-4 rounded p-4 card text-center">
-              <img
-                alt="Search Engine Optimization"
-                src="5597785.png"
-                className="w-2/5 mx-auto my-6"
-              ></img>
-              <p>Search Engine Optimization</p>
-            </div>
-            <div className="w-3/5 md:w-1/6 bg-slate-200 my-8 md:my-0 mx-auto md:mx-4 rounded p-4 card text-center">
-              <img
-                alt="Web Design and Developments"
-                src="4205106.png"
-                className="w-2/5 mx-auto my-6"
-              ></img>
-              <p>Web Design and Developments</p>
-            </div>
-            <div className="w-3/5 md:w-1/6 bg-slate-200 my-8 md:my-0 mx-auto md:mx-4 rounded p-4 card text-center">
-              <img
-                alt="Cloud Computing Services"
-                src="9536528.png"
-                className="w-2/5 mx-auto my-6"
-              ></img>
-              <p>Cloud Computing Services</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full md:h-96 md:w-3/4 my-12 mx-auto rounded p-2  md:flex md:justify-between">
-          <img
-            className="rounded md:w-2/4"
-            src="e45cdd27a970e6bba8e9fa9d6bb84544.jpg"
-            alt="team work"
-          ></img>
-
-          <p className="p-2 md:w-2/4 font-mono text-slate-200  p-1 mx-2">
-            {typingText}
-            <samp className="blink">|</samp>
-          </p>
-        </div>
-        <p className="text-blue-400 text-center mt-32 text-4xl ">Contact Us</p>
-        <div className=" w-full flex justify-center py-16" ref={refAnchor}>
-          <div className=" p-4 mx-4 text-center rounded-full hover:cursor-pointer hover:bg-slate-700">
-            <img src="1384072.png" alt="linkedin" className="w-8"></img>
-          </div>
-          <div className=" p-4 mx-4 text-center rounded-full hover:cursor-pointer hover:bg-slate-700">
-            <img src="1384075.png" alt="twitter" className="w-8"></img>
-          </div>
-          <div className=" p-4 mx-4 text-center rounded-full  hover:cursor-pointer hover:bg-slate-700">
-            <img src="3059989.png" alt="mail" className="w-8"></img>
+          <div className="w-3/5 md:w-1/6 bg-slate-200 my-8 md:my-0 mx-auto md:mx-4 rounded p-4 card text-center">
+            <img
+              alt="Cloud Computing Services"
+              src="9536528.png"
+              className="w-2/5 mx-auto my-6"
+            ></img>
+            <p>Cloud Computing Services</p>
           </div>
         </div>
       </div>
-    );
-  }
+
+      <div className="w-full md:h-96 md:w-3/4 my-12 mx-auto rounded p-2  md:flex md:justify-between">
+        <img
+          className="rounded md:w-2/4"
+          src="e45cdd27a970e6bba8e9fa9d6bb84544.jpg"
+          alt="team work"
+        ></img>
+
+        <p className="p-2 md:w-2/4 font-mono text-slate-200  p-1 mx-2">
+          {typingText}
+          <samp className="blink">|</samp>
+        </p>
+      </div>
+      <p className="text-blue-400 text-center mt-32 text-4xl ">Contact Us</p>
+      <div className=" w-full flex justify-center py-16" ref={refAnchor}>
+        <div className=" p-4 mx-4 text-center rounded-full hover:cursor-pointer hover:bg-slate-700">
+          <img src="1384072.png" alt="linkedin" className="w-8"></img>
+        </div>
+        <div className=" p-4 mx-4 text-center rounded-full hover:cursor-pointer hover:bg-slate-700">
+          <img src="1384075.png" alt="twitter" className="w-8"></img>
+        </div>
+        <div className=" p-4 mx-4 text-center rounded-full  hover:cursor-pointer hover:bg-slate-700">
+          <img src="3059989.png" alt="mail" className="w-8"></img>
+        </div>
+      </div>
+    </div>
+  );
 }
