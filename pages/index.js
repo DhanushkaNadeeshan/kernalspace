@@ -14,18 +14,12 @@ export default function Home() {
   const refVideo = useRef(null);
 
   useEffect(() => {
-    const onPageLoad = () => {
+    // if unable to hable onload video event close the loader after 5s
+    const closeAnimation = setTimeout(() => {
       setPlayAnimation(false);
-    };
+    }, 5 * 1000);
 
-    // Check if the page has already loaded
-    if (document.readyState === "complete") {
-      onPageLoad();
-    } else {
-      window.addEventListener("load", onPageLoad);
-      // Remove the event listener when component unmounts
-      return () => window.removeEventListener("load", onPageLoad);
-    }
+    return clearTimeout(closeAnimation);
   }, []);
 
   const timer = (array) => {
@@ -93,10 +87,6 @@ export default function Home() {
     }
   };
 
-  const foo = ()=>{
-    console.log("load");
-  }
-
   return (
     <div
       className="wrapper bg-slate-900 "
@@ -107,6 +97,8 @@ export default function Home() {
         <title>KERNAL SPACE</title>
       </Head>
 
+      {playAnimation && <Loader />}
+      
       <div className="video-background">
         <video
           className="pb-2"
@@ -114,11 +106,11 @@ export default function Home() {
           autoPlay
           muted
           loop
-          onLoadedData={foo}
+          onLoadedData={() => {
+            setPlayAnimation(false);
+          }}
           src="/bg.mp4"
-        >
-       
-        </video>
+        ></video>
         <div className="content-head">
           <img
             className="w-1/2 md:w-1/5 absolute"
