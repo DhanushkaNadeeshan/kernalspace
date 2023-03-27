@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import Head from "next/head";
 import Loader from "../components/Loader";
+import Image from "next/image";
 
 export default function Home() {
   const [typingText, setTyping] = useState("");
@@ -17,9 +18,9 @@ export default function Home() {
     // if unable to hable onload video event close the loader after 5s
     const closeAnimation = setTimeout(() => {
       setPlayAnimation(false);
-    }, 5 * 1000);
+    }, 2 * 1000);
 
-    return clearTimeout(closeAnimation);
+    return () => clearTimeout(closeAnimation);
   }, []);
 
   const timer = (array) => {
@@ -95,10 +96,27 @@ export default function Home() {
     >
       <Head>
         <title>KERNAL SPACE</title>
+        <meta
+          name="description"
+          content="Web development, Cloud services, Node.js development, React.js development,"
+        />
+        <meta
+          name="keywords"
+          content={`Web development, Cloud services, Node.js development, 
+          React.js development, Next.js development, Python development,
+           Full-stack development, Front-end development, Back-end development,
+           Web application development, Custom software development, 
+           Agile software development, DevOps services, Cloud infrastructure, 
+           Cloud migration, Cloud security, Serverless architecture,
+            Microservices architecture, RESTful API development,
+            Database design and development`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="canonical" href="https://kernalspace.vercel.app" />
       </Head>
 
       {playAnimation && <Loader />}
-      
+
       <div className="video-background">
         <video
           className="pb-2"
@@ -120,6 +138,13 @@ export default function Home() {
           <h1 className="absolute text-2xl md:text-3xl  font-bold text-slate-200 tracking-in-contract-bck ">
             KERNAL SPACE
           </h1>
+          <Image
+            className="mx-auto mt-32 animate-bounce"
+            alt="scrolle down"
+            src="/mouse-cursor.png"
+            width={50}
+            height={50}
+          ></Image>
         </div>
         <div className="absolute bottom-0 w-full h-96 bg-slate-300 content-head-b"></div>
       </div>
